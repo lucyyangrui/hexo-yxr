@@ -1022,7 +1022,184 @@ public:
 <p>100.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/same-tree/">相同的树</a></p>
 <p>同时遍历两棵树。</p>
 <p>耶！破百了~~</p>
+<h2 id="101-110"><a href="#101-110" class="headerlink" title="101-110"></a>101-110</h2><p>101.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree/">对称二叉树</a></p>
+<p>与100题类似。</p>
+<p>102.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">二叉树的层序遍历</a></p>
+<p>树的遍历：</p>
+<ul>
+<li>前中后遍历：dfs、栈、Morris遍历</li>
+<li>层序遍历</li>
+<li>给定遍历序列，恢复树的结构</li>
+</ul>
+<p>103.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/">二叉树的锯齿形层序遍历</a></p>
+<p>首先按照层序遍历整棵树，在偶数层将遍历得到的数组翻转。</p>
+<p>104.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a></p>
+<ul>
+<li>bfs做树的遍历（上面两题–层序遍历</li>
+<li>dfs记录当前点到根节点的距离</li>
+</ul>
+<ol start="105">
+<li><h4 id="从前序与中序遍历序列构造二叉树"><a href="#从前序与中序遍历序列构造二叉树" class="headerlink" title="从前序与中序遍历序列构造二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">从前序与中序遍历序列构造二叉树</a></h4></li>
+</ol>
+<p>首先通过前序遍历确定根节点，之后利用根节点找到其在后续遍历序列中的位置，</p>
+<p>为了快速进行定位，首先将数组存放到hash表中，可以将每次查找的时间降低为O(1)。</p>
+<p>106.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">从中序与后序遍历序列构造二叉树</a></p>
+<p>与上题做法基本一致。</p>
+<p>107.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/"> 二叉树的层序遍历 II</a></p>
+<p>首先层序遍历，之后将最终答案数组翻转。</p>
+<p>108.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/">将有序数组转换为二叉搜索树</a></p>
+<p>dfs</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    TreeNode* sortedArrayToBST(vector&lt;int&gt;&amp; nums) &#123;
+        return build(nums, 0, nums.size() - 1);
+    &#125;
 
+    TreeNode* build(vector&lt;int&gt;&amp; nums, int l, int r)&#123;
+        if(l &gt; r) return NULL;
+        int mid &#x3D; (l + r) &gt;&gt; 1;
+        auto root &#x3D; new TreeNode(nums[mid]);
+        root-&gt;left &#x3D; build(nums, l, mid - 1);
+        root-&gt;right &#x3D; build(nums, mid + 1, r);
+
+        return root;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>109.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/">有序链表转换二叉搜索树</a></p>
+<p>链表没法按位索引的。可以先将链表的值存储到一个空数组中，将本题转化为上一题。</p>
+<p>110.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/balanced-binary-tree/">平衡二叉树</a></p>
+<p>dfs，需要记录当前子树高度的最大值，以及是否满足左子树的高度与右子树的高度最大相差1。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    bool ans;
+
+    bool isBalanced(TreeNode* root) &#123;
+        ans &#x3D; true;
+        dfs(root);
+        return ans;
+    &#125;
+
+    int dfs(TreeNode* root)&#123; &#x2F;&#x2F;返回当前子树高度的最大值
+        if(!root) return 0;
+        int lh &#x3D; dfs(root-&gt;left), rh &#x3D; dfs(root-&gt;right);
+        if(abs(lh - rh) &gt; 1) ans &#x3D; false;
+        return max(lh, rh) + 1;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="111-120"><a href="#111-120" class="headerlink" title="111-120"></a>111-120</h2><p>111.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/">二叉树的最小深度</a></p>
+<p>考虑根节点的信息如何由两个子节点得到。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    int minDepth(TreeNode* root) &#123;
+        if(!root) return 0;
+        if(!root-&gt;left &amp;&amp; !root-&gt;right) return 1;
+        if(root-&gt;left &amp;&amp; root-&gt;right) return min(minDepth(root-&gt;left), minDepth(root-&gt;right)) + 1;
+        if(root-&gt;left) return minDepth(root-&gt;left) + 1;
+        return minDepth(root-&gt;right) + 1;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>112.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum/">路径总和</a></p>
+<p>思考方法与上题相同。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) &#123;
+        if(!root) return false;
+        targetSum -&#x3D; root-&gt;val;
+        if(!root-&gt;left &amp;&amp; !root-&gt;right)&#123;
+            if(targetSum &#x3D;&#x3D; 0) return true;
+        &#125;
+        return root-&gt;left &amp;&amp; hasPathSum(root-&gt;left, targetSum) || root-&gt;right &amp;&amp; hasPathSum(root-&gt;right, targetSum);
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>113.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-ii/">路径总和 II</a></p>
+<p>与112思考方法相似，只是要将方案记录下来。</p>
+<p>114.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/"> 二叉树展开为链表</a></p>
+<p>若有左子树，则左子树的右链插入到当前节点的右边，左链不变。</p>
+<p>115.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/distinct-subsequences/">不同的子序列</a></p>
+<p>DP。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    int numDistinct(string s, string t) &#123;
+        int n &#x3D; s.size(), m &#x3D; t.size();
+
+        s &#x3D; &#39; &#39; + s, t &#x3D; &#39; &#39; + t;
+        vector&lt;vector&lt;uint64_t&gt;&gt; f(n + 1, vector&lt;uint64_t&gt;(m + 1));&#x2F;&#x2F;注意中间结果可能爆INT
+
+        for(int i &#x3D; 0; i &lt;&#x3D; n; i ++) f[i][0] &#x3D; 1;
+        for(int i &#x3D; 1; i &lt;&#x3D; n; i ++) &#123;
+            for(int j &#x3D; 1; j &lt;&#x3D;m; j ++)&#123;
+                if(s[i] &#x3D;&#x3D; t[j]) f[i][j] &#x3D; f[i - 1][j] + f[i - 1][j -1];&#x2F;&#x2F;当s[i]与t[j]相等时，有选s[i]和不选s[i]两种情况
+                else f[i][j] &#x3D; f[i - 1][j];
+            &#125;
+        &#125;
+
+        return f[n][m];
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>116.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/">填充每个节点的下一个右侧节点指针</a></p>
+<p>BFS。</p>
+<p>结点的左儿子的next指向右儿子，右节点的next指向其next的左儿子。</p>
+<p>117.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/">填充每个节点的下一个右侧节点指针 II</a></p>
+<p>不是满二叉树。</p>
+<p>开一个链表，维护一下每一层的结点。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    Node* connect(Node* root) &#123;
+        if(!root) return root;
+        auto cur &#x3D; root;
+        while(cur)&#123;
+            auto head &#x3D; new Node(-1);
+            auto tail &#x3D; head;
+            for(auto p &#x3D; cur; p; p &#x3D; p-&gt;next)&#123;
+                if(p-&gt;left) tail &#x3D; tail-&gt;next &#x3D; p-&gt;left;
+                if(p-&gt;right) tail &#x3D; tail-&gt;next &#x3D; p-&gt;right;
+            &#125;
+            cur &#x3D; head-&gt;next;
+        &#125;
+        return root;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>118.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/pascals-triangle/"> 杨辉三角</a></p>
+<p>f[i,j] = f[i - 1, j - 1] + f[i - 1, j]</p>
+<p>119.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/pascals-triangle-ii/">杨辉三角 II</a></p>
+<p>只输出某一行，若要求O(n)的空间，则可以利用滚动数组。</p>
+<p>分析可知，若利用两个数组，则f[0]只需要存储0，2，4，6…的偶数行，f[1]存储1，3，5，7…的奇数行。</p>
+<p>则可以利用与运算解决。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
+public:
+    vector&lt;int&gt; getRow(int n) &#123;
+        vector&lt;vector&lt;int&gt;&gt; f(2, vector&lt;int&gt;(n + 1));
+        for(int i &#x3D; 0; i &lt;&#x3D; n; i ++)&#123;
+            f[i &amp; 1][0] &#x3D; f[i &amp; 1][i] &#x3D; 1;
+            for(int j &#x3D; 1; j &lt; i; j ++)&#123;
+                f[i &amp; 1][j] &#x3D; f[i - 1 &amp; 1][j - 1] + f[i - 1 &amp; 1][j];
+            &#125;
+        &#125;
+        return f[n &amp; 1];
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>120.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/triangle/">三角形最小路径和</a></p>
+<p>自底向上，考虑走到顶的路径的最小值。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    int minimumTotal(vector&lt;vector&lt;int&gt;&gt;&amp; f) &#123;
+        for(int i &#x3D; f.size() - 2; i &gt;&#x3D; 0; i --)&#123;
+            for(int j &#x3D; 0; j &lt;&#x3D; i; j ++)&#123;
+                f[i][j] +&#x3D; min(f[i + 1][j], f[i + 1][j + 1]);
+            &#125;
+        &#125;
+        return f[0][0];
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="121-130"><a href="#121-130" class="headerlink" title="121-130"></a>121-130</h2>
                 
             </div>
             <hr/>
