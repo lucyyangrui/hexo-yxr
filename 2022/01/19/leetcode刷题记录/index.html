@@ -1199,7 +1199,13 @@ public:
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="121-130"><a href="#121-130" class="headerlink" title="121-130"></a>121-130</h2>
+<h2 id="121-130"><a href="#121-130" class="headerlink" title="121-130"></a>121-130</h2><p>121.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">买卖股票的最佳时机</a></p>
+<p>遍历哪天卖出，假设第i天卖出，则寻找第1到i-1天的最小值。</p>
+<p>122.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">买卖股票的最佳时机 II</a></p>
+<p>交易分解。将i天买入j天卖出拆成中间每天都买入卖出。</p>
+<p>123.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">买卖股票的最佳时机 III</a></p>
+<p>前后缀分解。枚举第二次买入的时间，第一次就相当于在1到i-1之间操作一次获得的最大收益，即第121题。第二次买入的最大收益相当于求解i到n之间操作一次的最大收益。</p>
+
                 
             </div>
             <hr/>
