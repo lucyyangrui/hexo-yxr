@@ -1205,6 +1205,92 @@ public:
 <p>交易分解。将i天买入j天卖出拆成中间每天都买入卖出。</p>
 <p>123.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">买卖股票的最佳时机 III</a></p>
 <p>前后缀分解。枚举第二次买入的时间，第一次就相当于在1到i-1之间操作一次获得的最大收益，即第121题。第二次买入的最大收益相当于求解i到n之间操作一次的最大收益。</p>
+<p>124.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/">二叉树中的最大路径和</a></p>
+<p>枚举树中所有路径，一般都是枚举最高点。最近公共祖先。维护以每个结点为最高点的路径的最大值。</p>
+<p>125.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-palindrome/">验证回文串</a></p>
+<p>双指针。</p>
+<p>126.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-ladder-ii/">单词接龙 II</a></p>
+<p>本质上是最短路问题。时间复杂度为指数级别。</p>
+<p>若两个单词可以互相转换，则在两点之间连接一条边。</p>
+<p>127.</p>
+<p>略难，先跳过。</p>
+<p>128.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-consecutive-sequence/">最长连续序列</a></p>
+<p>首先开个hash表存储所有的数，之后查x是否存在，要注意每次只枚举每一段的开头，若x - 1存在，则不枚举x。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    int longestConsecutive(vector&lt;int&gt;&amp; nums) &#123;
+        unordered_set&lt;int&gt; S;
+        for(auto x:nums) S.insert(x);
+
+        int res &#x3D; 0;
+        for(auto x: nums)&#123;
+            if(S.count(x) &amp;&amp; !S.count(x - 1))&#123;
+                int y &#x3D; x;
+                S.erase(x);
+                while(S.count(y + 1))&#123;
+                    y ++;
+                    S.erase(y);
+                &#125;
+                res &#x3D; max(res, y - x + 1);
+            &#125;
+        &#125;
+
+        return res;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>129.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/">求根节点到叶节点数字之和</a></p>
+<p>维护一下从上一结点到当前节点的结点权值之和。</p>
+<p>130.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/surrounded-regions/">被围绕的区域</a></p>
+<p>flood fill算法。搜索所有连通块。dfs/bfs</p>
+<p>从边界开始搜索所有O将不能从边界的O遍历到的O全部标记为X即可。</p>
+<h2 id="131-140"><a href="#131-140" class="headerlink" title="131-140"></a>131-140</h2><p>131.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-partitioning/">分割回文串</a></p>
+<p>暴搜。g[i,j]表示i到j的字串是否为回文串，这种初始化思想很重要。</p>
+<p>132.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-partitioning-ii/">分割回文串 II</a></p>
+<p>f[i]表示1-i的字串分割的最小次数。同样利用上面的初始化的优化思想。</p>
+<p>133.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/clone-graph/">克隆图</a></p>
+<p>复制图的点与边。</p>
+<p>134.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/gas-station/">加油站</a></p>
+<ul>
+<li>单调队列  O(n) 更通用   acwing1688</li>
+<li>适合该题   枚举+优化</li>
+</ul>
+<p>枚举起点时间复杂度为O(n^2)，但可以证明若无法由i走到j，则从i-j-1之间的任意一个站都没法走到j。此时可以将算法优化到O(n)。</p>
+<p>135.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/candy/">分发糖果</a></p>
+<p>注意该题写法，由于求解f[i]的时候，需要用到f[i + 1] ，所以无法递推得到答案。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    vector&lt;int&gt; f;
+    vector&lt;int&gt; w;
+    int n;
+
+    int candy(vector&lt;int&gt;&amp; ratings) &#123;
+        n &#x3D; ratings.size();
+        w &#x3D; ratings;
+        f.resize(n, -1);
+
+        int res &#x3D; 0;
+        for(int i &#x3D; 0; i &lt; n; i ++)&#123;
+            res +&#x3D; dp(i);
+        &#125;
+
+        return res;
+    &#125;
+
+    int dp(int x)&#123;
+        if(f[x] !&#x3D; -1) return f[x];
+        f[x] &#x3D; 1;
+        if(x &amp;&amp; w[x] &gt; w[x - 1]) f[x] &#x3D; max(f[x], dp(x - 1) + 1);
+        if(x + 1 &lt; n &amp;&amp; w[x + 1] &lt; w[x]) f[x] &#x3D; max(f[x], dp(x + 1) + 1);
+        return f[x];
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>136.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number/">只出现一次的数字</a></p>
+<p>本题要求时间复杂度为O(n)，且不开额外的空间。</p>
+<p>亦或运算，由于相同的数亦或之后结果为0，则可以把整个数组按位亦或运算，最终答案即为只出现一次的数。</p>
+<p>【拓展】数组中有两个数只出现一次，其余数字出现两次。</p>
+<p>137.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number-ii/">只出现一次的数字 II</a></p>
 
                 
             </div>
