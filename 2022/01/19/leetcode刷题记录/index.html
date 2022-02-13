@@ -1350,6 +1350,23 @@ public:
 <p>+…之后模上一个很多大的数字。经验值，字符串哈希取p = 131几乎不会遇到冲突。</p>
 <p>140.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-break-ii/">单词拆分 II</a></p>
 <p>返回所有的划分方案。</p>
+<p>141.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">环形链表</a></p>
+<p>直观思路：开一个hash表，记录每一个节点是否被访问过。</p>
+<p>但如果要求使用O(1)的空间，则可以考虑使用快慢指针（双指针的一种）快指针每次向后跳两格，满指针每次向后跳一格。若有环，两个指针会相遇，否则，快指针会先到达尾节点。</p>
+<p>142.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle-ii/">环形链表 II</a></p>
+<p>首先利用快慢指针定位到相遇点，之后定义两个节点，分别从起点出发以及从相遇点出发，之后相遇的节点即为环形入口。</p>
+<p>没AC</p>
+<p>143.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reorder-list/">重排链表</a></p>
+<p>将后半段的指针反向。</p>
+<p>之后将后半段交替插入前半段。</p>
+<p>144.&amp;145</p>
+<p>树的前序与后序遍历。</p>
+<p>可以用递归的方法，三行代码解决。</p>
+<p>若不用递归的方法，可以用栈解决。</p>
+<p>后序遍历可以先按照中右左的顺序，之后将答案进行反转。</p>
+<p>146.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lru-cache/">LRU 缓存</a></p>
+<p>双链表。可以在O(1)时间删除。</p>
+<p>利用哈希表维护时间戳，</p>
 
                 
             </div>
