@@ -7,12 +7,13 @@
     <meta name="keywords" content="leetcode刷题记录, yxr的魔幻小屋">
     <meta name="description" content="44-50
 
+
 通配符匹配
 
-给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 &amp;#39;?&amp;#39; 和 &amp;#39;*&amp;#39; 的通配符匹配。
+给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 &#39;?&#39; 和 &#39;*&#39; 的通配符匹配。
 动态规划
 f[i,j]表示s[1-i]与p[1-j]是否匹配
-分两种情况考虑，p">
+分两种情况考虑，p[j]是否为‘">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -489,20 +490,21 @@ f[i,j]表示s[1-i]与p[1-j]是否匹配
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="44-50"><a href="#44-50" class="headerlink" title="44-50"></a>44-50</h2><hr>
-<ol start="44">
+                <h2 id="section">44-50</h2>
+<hr />
+<ol start="44" type="1">
 <li>通配符匹配</li>
 </ol>
-<p>给定一个字符串 (<code>s</code>) 和一个字符模式 (<code>p</code>) ，实现一个支持 <code>&#39;?&#39;</code> 和 <code>&#39;*&#39;</code> 的通配符匹配。</p>
+<p>给定一个字符串 (<code>s</code>) 和一个字符模式 (<code>p</code>) ，实现一个支持 <code>'?'</code> 和 <code>'*'</code> 的通配符匹配。</p>
 <p>动态规划</p>
 <p>f[i,j]表示s[1-i]与p[1-j]是否匹配</p>
 <p>分两种情况考虑，p[j]是否为‘*’，若不是，f[i,j] = p[j]==s[j]&amp;&amp;f[i-1, j-1]</p>
-<p>若是，枚举’*’表示几个字符   f[i, j-1]|f[i-1, j-1]|…|f[0,j-1]，此时，时间复杂度为O(n^3)</p>
-<p>由于 f[i-1, j] = f[i-1, j-1]|f[i-2, j-1]|…|f[0, j-1]，因此，f[i, j] = f[i, j-1] | f[i-1, j]，时间复杂度降低为O(n^2)</p>
+<p>若是，枚举'*'表示几个字符 f[i, j-1]|f[i-1, j-1]|...|f[0,j-1]，此时，时间复杂度为O(n^3)</p>
+<p>由于 f[i-1, j] = f[i-1, j-1]|f[i-2, j-1]|...|f[0, j-1]，因此，f[i, j] = f[i, j-1] | f[i-1, j]，时间复杂度降低为O(n^2)</p>
 <p>PS：跟着y总的视频敲（chao）的代码。。。现在脑子像是灌了浆糊。。。</p>
-<hr>
+<hr />
 <p>45.跳跃游戏</p>
-<p>贪心无法得到最优结果，直接枚举的话时间复杂度为O(n^2)。考虑动态规划f[i]表示从i到终点的最少跳数。从后往前推，此时最坏时间复杂度仍然是O(n^2)。</p>
+<p>贪心无法得到最优结果，直接枚举的话时间复杂度为O(n<sup>2)。考虑动态规划f[i]表示从i到终点的最少跳数。从后往前推，此时最坏时间复杂度仍然是O(n</sup>2)。</p>
 <p><strong>优化</strong></p>
 <p>数组g[i]表示从起点到i点的最少步数。g[i]是单调递增的，分段，且每一段相差1。</p>
 <p>可以将数组分段处理，每一段的g是相同的，下一段的边界是上一段跳跃的最远点。时间复杂度O(2n)。</p>
@@ -521,21 +523,20 @@ public:
         return f[n - 1];
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>这个写法tql。简单而强大。</p>
-<hr>
+<hr />
 <p>46.全排列</p>
 <p>递归 暴搜 DFS</p>
 <p>两种递归搜索树。枚举每个位置填哪个数字。或，枚举每个数在哪个位置。</p>
-<hr>
+<hr />
 <p>47.全排列Ⅱ</p>
 <p>有相同元素的排列。</p>
 <p>同上，两种递归搜索树。注意，如果题目要求按照字典序输出，则枚举每个位置出现的数字。</p>
 <p>保证相同数字的相对顺序不变。每次枚举找第一个没有用过的。</p>
 <p>写法与46基本一致，注意若当前数字有重复，需要判断是否是第一个没被使用的数</p>
-<p>**PS： **    有意思的来了，leetcode上 判断前一个相同的数有/没有使用的代码都可以AC。。。离谱</p>
-<hr>
-<p>48.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-image/"> 旋转图像</a></p>
+<p><strong>PS： </strong> 有意思的来了，leetcode上 判断前一个相同的数有/没有使用的代码都可以AC。。。离谱</p>
+<hr />
+<p>48.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-image/">旋转图像</a></p>
 <p>由于要求输出格式，直接按下标输出不太妥，还是要对原矩阵进行更改。如果两两个的值进行交换，比较繁琐（PS：不可行，在逐个位置进行交换的时候，有些位置会被交换两次，进而出现错误。）考虑先先沿着对角线翻转再左右翻转。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void rotate(vector&lt;vector&lt;int&gt;&gt;&amp; matrix) &#123;
         int m &#x3D; matrix.size();
@@ -552,19 +553,17 @@ public:
             &#125;
         &#125;
     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
+<hr />
 <p>49.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/group-anagrams/">字母异位词分组</a></p>
 <p>判断字符串是否是同一组，对字符串的字母排序，如果排序后相同，则两个字符是字母异位词。</p>
-<p>利用hash表存储。排序后字符串–》原字符串—–即将排序后相同的字符串存储到哈希表的同一个位置。</p>
+<p>利用hash表存储。排序后字符串--》原字符串-----即将排序后相同的字符串存储到哈希表的同一个位置。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">unordered_map&lt;string, vector&lt;string&gt;&gt; hash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<hr>
+<hr />
 <p>50.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/powx-n/">Pow(x, n)</a></p>
 <p>快速幂。利用二进制的思想。将指数化为二进制。</p>
-<p>x^n，若n=(1101)_2，则x^n = x^(2^3+2^2+2^0) = x^(2^3) * x^(2^2) * x^(2^0)</p>
-<p>x^(2^2) = x^(2^1) * x^(2^1) </p>
-<p>x^(2^3) = x^(2^2) * x^(2^2)。。。</p>
+<p>x^n，若n=(1101)_2，则x^n = x<sup>(2</sup>3+2<sup>2+2</sup>0) = x<sup>(2</sup>3) * x<sup>(2</sup>2) * x<sup>(2</sup>0)</p>
+<p>x<sup>(2</sup>2) = x<sup>(2</sup>1) * x<sup>(2</sup>1)</p>
+<p>x<sup>(2</sup>3) = x<sup>(2</sup>2) * x<sup>(2</sup>2)。。。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
 public:
     double myPow(double x, int n) &#123;
@@ -581,13 +580,12 @@ public:
         return res;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="51-60"><a href="#51-60" class="headerlink" title="51-60"></a>51-60</h2><hr>
+<h2 id="section-1">51-60</h2>
+<hr />
 <p>51.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-queens/">N 皇后</a></p>
 <p>皇后不能出现在同一行同一列以及同一对角线。</p>
 <p>显示皇后不能在同一条对角线，需要设置一个额外的数组把点的下标映射到对角线。【难点】</p>
 <img src="/2022/01/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/N%E7%9A%87%E5%90%8E.png" class="" title="N皇后">
-
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
 public:
     int n;
@@ -623,42 +621,41 @@ public:
         &#125;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
+<hr />
 <p>52.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-queens-ii/">N皇后 II</a></p>
 <p>与51完全一致，更简单。</p>
-<hr>
+<hr />
 <p>53.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-subarray/">最大子数组和</a></p>
 <p>动态规划，f[i]表示以nums[i]结尾的子数组中的最大和。</p>
 <p>f[i] = max(nums[i], f[i - 1] + nums[i]) = nums[i] + max(0, f[i - 1])</p>
 <p>由于每次更新f只需要上一步的结果，所以可以直接用一个变量记录上一步的结果，不需要开新数组。</p>
-<hr>
+<hr />
 <p>54.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/spiral-matrix/">螺旋矩阵</a></p>
 <p>推荐利用偏移量的方法去做。dx=[0,1,0,-1] dy=[1,0,-1,0]</p>
-<hr>
+<hr />
 <p>55.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/jump-game/">跳跃游戏</a></p>
 <p>45题的简化版。</p>
-<hr>
+<hr />
 <p>56.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-intervals/">合并区间</a></p>
 <p>模板题。</p>
 <ul>
 <li>按左端点排序，从小到大</li>
 <li>后一个区间的起点若小于等于前一个区间的终点，将新区间起点更新为前一个区间的起点，终点更新为两个区间终点的最大值。</li>
 </ul>
-<hr>
+<hr />
 <p>57.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/insert-interval/">插入区间</a></p>
-<p> 将区间分为三类，一类是在插入区间之前，一类是与插入区间有交集，一类是在插入区间之后；之前与之后的区间直接放到答案数组里面，要三类区间的区分。</p>
-<hr>
-<p>58.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/length-of-last-word/"> 最后一个单词的长度</a></p>
-<p>方法一：语法  stringstream 作用：读取string中的单词。面试的时候不适用。</p>
+<p>将区间分为三类，一类是在插入区间之前，一类是与插入区间有交集，一类是在插入区间之后；之前与之后的区间直接放到答案数组里面，要三类区间的区分。</p>
+<hr />
+<p>58.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/length-of-last-word/">最后一个单词的长度</a></p>
+<p>方法一：语法 stringstream 作用：读取string中的单词。面试的时候不适用。</p>
 <p>方法二：双指针。j指向最后一位不是空格的位置，j - i就是单词长度。PS：既然是求最后一个单词的长度，从后往前会更快~</p>
-<hr>
+<hr />
 <p>59.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/spiral-matrix-ii/">螺旋矩阵 II</a></p>
 <p>与54基本相同。</p>
-<hr>
+<hr />
 <p>60.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/permutation-sequence/">排列序列</a></p>
 <p>全排，枚举每个位置出现哪个数字。需要深搜。</p>
-<p>方法一：语法  next_permutation  O(n * n!) 因为n比较小可以AC。</p>
+<p>方法一：语法 next_permutation O(n * n!) 因为n比较小可以AC。</p>
 <p>方法二：由于第一位确定的全排有(n-1)!个，分析k与全排的数目之间的规律。写法挺巧妙，注意学习。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
 public:
@@ -683,30 +680,28 @@ public:
         return res;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="61-70"><a href="#61-70" class="headerlink" title="61-70"></a>61-70</h2><hr>
+<h2 id="section-2">61-70</h2>
+<hr />
 <p>61.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotate-list/">旋转链表</a></p>
-<p> 由于是链表旋转的问题，首先统计链表长度，将k值转化为0到n-1之间（k % n）;接着将头节点与尾节点的位置改变一下，使得链表最后一个节点指向头节点，新的头节点改为第n-k个节点。</p>
+<p>由于是链表旋转的问题，首先统计链表长度，将k值转化为0到n-1之间（k % n）;接着将头节点与尾节点的位置改变一下，使得链表最后一个节点指向头节点，新的头节点改为第n-k个节点。</p>
 <p>遇到链表的题目，记得画图解决，不要空想。</p>
-<hr>
+<hr />
 <p>62.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths/">不同路径</a></p>
-<p>DP。f(i,j)表示从(0,0)到(i,j)的方案数。f(i,j) = f(i - 1,j) + f(i, j - 1)。i = 0时，f(i,j) = f(i, j - 1); j = 0时，f(i,j) = f(i - 1, j)。    O(n^2)。</p>
-<hr>
+<p>DP。f(i,j)表示从(0,0)到(i,j)的方案数。f(i,j) = f(i - 1,j) + f(i, j - 1)。i = 0时，f(i,j) = f(i, j - 1); j = 0时，f(i,j) = f(i - 1, j)。 O(n^2)。</p>
+<hr />
 <p>63.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-paths-ii/">不同路径 II</a></p>
 <p>当有障碍物时，f(i,j) = 0。其余均与上一题一样。</p>
-<hr>
+<hr />
 <p>64.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-path-sum/">最小路径和</a></p>
 <p>与前两题类似。</p>
-<hr>
+<hr />
 <p>65.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/valid-number/">有效数字</a></p>
 <p>套数据。没啥么意思。《lc上口碑最差》</p>
-<hr>
+<hr />
 <p>66.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/plus-one/">加一</a></p>
 <p>模拟加法的过程。</p>
 <p>由于可能出现进位，首先把数组翻转一下，位数由低到高排列到数组中。</p>
-<hr>
+<hr />
 <p>67.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/add-binary/">二进制求和</a></p>
 <p>循环的写法可以学习一下，以后做这种模拟求和的题目可以套用。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for(int i &#x3D; 0; i &lt; a.size() || i &lt; b.size() || t; i ++)&#123;
@@ -715,43 +710,42 @@ public:
             ans +&#x3D; to_string(t%2);
             t &#x2F;&#x3D; 2;
         &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
+<hr />
 <p>68.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/text-justification/">文本左右对齐</a></p>
 <p>三种情况：</p>
 <ul>
-<li>最后一行：左对齐   每个单词中间一个空格；</li>
+<li>最后一行：左对齐 每个单词中间一个空格；</li>
 <li>只包含一个单词：左对齐；</li>
 <li>左右对齐</li>
 </ul>
-<hr>
-<ol start="69">
+<hr />
+<ol start="69" type="1">
 <li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sqrtx/">Sqrt(x)</a></li>
 </ol>
 <p>二分。找到一个最大的y，使得y*y&lt;=x。</p>
 <p>两个注意点：</p>
 <ul>
 <li>y*y可能会爆INT。。。可以改成（y &lt;= x / y）</li>
-<li>二分的写法<ul>
+<li>二分的写法
+<ul>
 <li>l = mid;;;;r = min + 1时，注意mid = (l + r + 1) / 2</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<hr>
-<ol start="70">
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/climbing-stairs/"> 爬楼梯</a></li>
+<hr />
+<ol start="70" type="1">
+<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/climbing-stairs/">爬楼梯</a></li>
 </ol>
 <p>斐波那契数列。</p>
 <p>f(n) = f(n-1)+f(n-2)</p>
-<h2 id="71-80"><a href="#71-80" class="headerlink" title="71-80"></a>71-80</h2><hr>
+<h2 id="section-3">71-80</h2>
+<hr />
 <p>71.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/simplify-path/">简化路径</a></p>
 <p>利用类似栈的思想。</p>
 <p>用一个字符串实现。</p>
-<hr>
+<hr />
 <p>72.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/edit-distance/">编辑距离</a></p>
 <p>超级经典的DP题。</p>
 <img src="/2022/01/19/leetcode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB.png" class="" title="DP分析">
-
 <p>注意，这里是A转化到B，所以B是不能变化的，所以共有三种情况。只考虑最后一步（A删，A加，A修改）。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
 public:
@@ -774,16 +768,15 @@ public:
         return f[n][m];
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
+<hr />
 <p>73.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/set-matrix-zeroes/">矩阵置零</a></p>
 <p>考虑什么情况下，该位置会是0。当元素所在的行和列出现0，则该元素为0.</p>
 <p>用原矩阵的第一行表示该列有没有0，原矩阵的第一列表示该行有没有0。再用两个变量记录第一行与第一列是否有0。</p>
-<hr>
+<hr />
 <p>74.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-a-2d-matrix/">搜索二维矩阵</a></p>
 <p>如果直接搜索整个矩阵，时间复杂度为O(mn)，试试会不会超时。竟然AC了</p>
 <p>由于题目中说了，每一行的第一个数大于前一行的最后一个数，所以可以将数组按行展开，此时形成的数列是单调递增的，可以利用二分的方法进行求解。重要的是将一维的坐标映射到二维。假设矩阵大小为m*n，则一维的x对应的二维坐标为(a = x / n, b = x % n)。</p>
-<hr>
+<hr />
 <p>75.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-colors/">颜色分类</a></p>
 <p>排序。sort即可解决。</p>
 <p>进阶：</p>
@@ -793,7 +786,7 @@ public:
 </ul>
 <p>三指针。</p>
 <p>还有一种投机的方法，从头到尾扫描数组，记录0、1、2的个数，之后在数组里填入相应数目的0、1、2即可。</p>
-<hr>
+<hr />
 <p>76.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-window-substring/">最小覆盖子串</a></p>
 <p>滑动窗口（双指针）算法的经典应用。</p>
 <p>计算以i结尾的包含所有子字符的字串的位置，起点为j，需要满足单调性。当i向后走时，j一定不会向前走。</p>
@@ -821,12 +814,11 @@ public:
         return res;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
+<hr />
 <p>77.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/combinations/">组合</a></p>
 <p>组合型枚举需要注意判重。</p>
 <p>人为规定按照某种顺序进行选择，则可以保证方案不重复。</p>
-<p>dfs(n, u, start)  // n个数，已经选了u个数，从start开始选。</p>
+<p>dfs(n, u, start) // n个数，已经选了u个数，从start开始选。</p>
 <p>写法值得学习</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
 public:
@@ -852,8 +844,7 @@ public:
         &#125;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
+<hr />
 <p>78.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subsets/">子集</a></p>
 <ul>
 <li>递归</li>
@@ -878,9 +869,6 @@ public:
         &#125;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <ul>
 <li>二进制</li>
 </ul>
@@ -901,17 +889,17 @@ public:
         return res;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<hr>
+<hr />
 <p>79.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-search/">单词搜索</a></p>
 <p>暴搜。dfs</p>
-<hr>
+<hr />
 <p>80.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/">删除有序数组中的重复项 II</a></p>
 <p>原地算法</p>
 <p>双指针。</p>
-<h2 id="81-90"><a href="#81-90" class="headerlink" title="81-90"></a>81-90</h2><p>81.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/">搜索旋转排序数组 II</a></p>
+<h2 id="section-4">81-90</h2>
+<p>81.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/">搜索旋转排序数组 II</a></p>
 <p>不要投机取巧~~</p>
-<p> 由于可能出现开头与结尾的数字相等，此时不满足二分的性质，可以把结尾与开头相同的数字删掉，此时可以利用二分法解决。</p>
+<p>由于可能出现开头与结尾的数字相等，此时不满足二分的性质，可以把结尾与开头相同的数字删掉，此时可以利用二分法解决。</p>
 <p>82.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/">删除排序链表中的重复元素 II</a></p>
 <p>增加虚拟头节点。</p>
 <p>83.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/">删除排序链表中的重复元素</a></p>
@@ -948,16 +936,16 @@ public:
         return res;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>90.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/subsets-ii/">子集 II</a></p>
 <p>开个hash表记录每个数字出现次数。</p>
-<h2 id="91-100"><a href="#91-100" class="headerlink" title="91-100"></a>91-100</h2><p>91.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-ways/"> 解码方法</a></p>
+<h2 id="section-5">91-100</h2>
+<p>91.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-ways/">解码方法</a></p>
 <p>DP。类似于跳台阶。</p>
 <p>92.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-linked-list-ii/">反转链表 II</a></p>
 <p>首先将left-right翻转，left的next指向right的后一个结点，之后将left的前一个结点的next指向right。为方便操作，添加虚拟头节点。</p>
 <p>93.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/restore-ip-addresses/">复原 IP 地址</a></p>
 <p>暴搜。</p>
-<p>dfs(string s, int u, int k, string path)   当前搜到第u位，当前所处的段数。</p>
+<p>dfs(string s, int u, int k, string path) 当前搜到第u位，当前所处的段数。</p>
 <p>94.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">二叉树的中序遍历</a></p>
 <p>递归很简单 O(n)</p>
 <p>迭代：借助栈来实现。</p>
@@ -980,9 +968,6 @@ public:
         return f[n];
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
 <p>97.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/interleaving-string/">交错字符串</a></p>
 <p>DP</p>
 <p>f[i,j]表示s1[1-i]与s2[1-j]是否能组成s3[1-i+j]。</p>
@@ -1008,11 +993,10 @@ public:
         return f[n][m];
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>98.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/validate-binary-search-tree/">验证二叉搜索树</a></p>
 <ul>
 <li>中序遍历是否有序</li>
-<li>按照定义判断   判断左子树的最大值是否小于根节点的值，右子树的最小值是否大于根节点的值</li>
+<li>按照定义判断 判断左子树的最大值是否小于根节点的值，右子树的最小值是否大于根节点的值</li>
 </ul>
 <p>不可以递归判断每一颗子树，因为不能保证子树的右孩子是否小于根节点。</p>
 <p>99.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/recover-binary-search-tree/">恢复二叉搜索树</a></p>
@@ -1022,7 +1006,8 @@ public:
 <p>100.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/same-tree/">相同的树</a></p>
 <p>同时遍历两棵树。</p>
 <p>耶！破百了~~</p>
-<h2 id="101-110"><a href="#101-110" class="headerlink" title="101-110"></a>101-110</h2><p>101.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree/">对称二叉树</a></p>
+<h2 id="section-6">101-110</h2>
+<p>101.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/symmetric-tree/">对称二叉树</a></p>
 <p>与100题类似。</p>
 <p>102.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">二叉树的层序遍历</a></p>
 <p>树的遍历：</p>
@@ -1035,17 +1020,17 @@ public:
 <p>首先按照层序遍历整棵树，在偶数层将遍历得到的数组翻转。</p>
 <p>104.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a></p>
 <ul>
-<li>bfs做树的遍历（上面两题–层序遍历</li>
+<li>bfs做树的遍历（上面两题--层序遍历</li>
 <li>dfs记录当前点到根节点的距离</li>
 </ul>
-<ol start="105">
-<li><h4 id="从前序与中序遍历序列构造二叉树"><a href="#从前序与中序遍历序列构造二叉树" class="headerlink" title="从前序与中序遍历序列构造二叉树"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">从前序与中序遍历序列构造二叉树</a></h4></li>
+<ol start="105" type="1">
+<li><h4 id="从前序与中序遍历序列构造二叉树"><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">从前序与中序遍历序列构造二叉树</a></h4></li>
 </ol>
 <p>首先通过前序遍历确定根节点，之后利用根节点找到其在后续遍历序列中的位置，</p>
 <p>为了快速进行定位，首先将数组存放到hash表中，可以将每次查找的时间降低为O(1)。</p>
 <p>106.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/">从中序与后序遍历序列构造二叉树</a></p>
 <p>与上题做法基本一致。</p>
-<p>107.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/"> 二叉树的层序遍历 II</a></p>
+<p>107.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/">二叉树的层序遍历 II</a></p>
 <p>首先层序遍历，之后将最终答案数组翻转。</p>
 <p>108.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/">将有序数组转换为二叉搜索树</a></p>
 <p>dfs</p>
@@ -1065,7 +1050,6 @@ public:
         return root;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>109.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/">有序链表转换二叉搜索树</a></p>
 <p>链表没法按位索引的。可以先将链表的值存储到一个空数组中，将本题转化为上一题。</p>
 <p>110.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/balanced-binary-tree/">平衡二叉树</a></p>
@@ -1087,8 +1071,8 @@ public:
         return max(lh, rh) + 1;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="111-120"><a href="#111-120" class="headerlink" title="111-120"></a>111-120</h2><p>111.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/">二叉树的最小深度</a></p>
+<h2 id="section-7">111-120</h2>
+<p>111.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/">二叉树的最小深度</a></p>
 <p>考虑根节点的信息如何由两个子节点得到。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
 public:
@@ -1100,7 +1084,6 @@ public:
         return minDepth(root-&gt;right) + 1;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>112.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum/">路径总和</a></p>
 <p>思考方法与上题相同。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
@@ -1114,10 +1097,9 @@ public:
         return root-&gt;left &amp;&amp; hasPathSum(root-&gt;left, targetSum) || root-&gt;right &amp;&amp; hasPathSum(root-&gt;right, targetSum);
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>113.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/path-sum-ii/">路径总和 II</a></p>
 <p>与112思考方法相似，只是要将方案记录下来。</p>
-<p>114.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/"> 二叉树展开为链表</a></p>
+<p>114.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/">二叉树展开为链表</a></p>
 <p>若有左子树，则左子树的右链插入到当前节点的右边，左链不变。</p>
 <p>115.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/distinct-subsequences/">不同的子序列</a></p>
 <p>DP。</p>
@@ -1140,7 +1122,6 @@ public:
         return f[n][m];
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>116.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/">填充每个节点的下一个右侧节点指针</a></p>
 <p>BFS。</p>
 <p>结点的左儿子的next指向右儿子，右节点的next指向其next的左儿子。</p>
@@ -1164,12 +1145,11 @@ public:
         return root;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>118.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/pascals-triangle/"> 杨辉三角</a></p>
+<p>118.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/pascals-triangle/">杨辉三角</a></p>
 <p>f[i,j] = f[i - 1, j - 1] + f[i - 1, j]</p>
 <p>119.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/pascals-triangle-ii/">杨辉三角 II</a></p>
 <p>只输出某一行，若要求O(n)的空间，则可以利用滚动数组。</p>
-<p>分析可知，若利用两个数组，则f[0]只需要存储0，2，4，6…的偶数行，f[1]存储1，3，5，7…的奇数行。</p>
+<p>分析可知，若利用两个数组，则f[0]只需要存储0，2，4，6...的偶数行，f[1]存储1，3，5，7...的奇数行。</p>
 <p>则可以利用与运算解决。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
 public:
@@ -1184,7 +1164,6 @@ public:
         return f[n &amp; 1];
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>120.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/triangle/">三角形最小路径和</a></p>
 <p>自底向上，考虑走到顶的路径的最小值。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
@@ -1198,8 +1177,8 @@ public:
         return f[0][0];
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="121-130"><a href="#121-130" class="headerlink" title="121-130"></a>121-130</h2><p>121.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">买卖股票的最佳时机</a></p>
+<h2 id="section-8">121-130</h2>
+<p>121.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">买卖股票的最佳时机</a></p>
 <p>遍历哪天卖出，假设第i天卖出，则寻找第1到i-1天的最小值。</p>
 <p>122.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">买卖股票的最佳时机 II</a></p>
 <p>交易分解。将i天买入j天卖出拆成中间每天都买入卖出。</p>
@@ -1212,7 +1191,9 @@ public:
 <p>126.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-ladder-ii/">单词接龙 II</a></p>
 <p>本质上是最短路问题。时间复杂度为指数级别。</p>
 <p>若两个单词可以互相转换，则在两点之间连接一条边。</p>
-<p>127.</p>
+<ol start="127" type="1">
+<li></li>
+</ol>
 <p>略难，先跳过。</p>
 <p>128.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-consecutive-sequence/">最长连续序列</a></p>
 <p>首先开个hash表存储所有的数，之后查x是否存在，要注意每次只枚举每一段的开头，若x - 1存在，则不枚举x。</p>
@@ -1238,13 +1219,13 @@ public:
         return res;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>129.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/">求根节点到叶节点数字之和</a></p>
 <p>维护一下从上一结点到当前节点的结点权值之和。</p>
 <p>130.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/surrounded-regions/">被围绕的区域</a></p>
 <p>flood fill算法。搜索所有连通块。dfs/bfs</p>
 <p>从边界开始搜索所有O将不能从边界的O遍历到的O全部标记为X即可。</p>
-<h2 id="131-140"><a href="#131-140" class="headerlink" title="131-140"></a>131-140</h2><p>131.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-partitioning/">分割回文串</a></p>
+<h2 id="section-9">131-140</h2>
+<p>131.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-partitioning/">分割回文串</a></p>
 <p>暴搜。g[i,j]表示i到j的字串是否为回文串，这种初始化思想很重要。</p>
 <p>132.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/palindrome-partitioning-ii/">分割回文串 II</a></p>
 <p>f[i]表示1-i的字串分割的最小次数。同样利用上面的初始化的优化思想。</p>
@@ -1252,8 +1233,8 @@ public:
 <p>复制图的点与边。</p>
 <p>134.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/gas-station/">加油站</a></p>
 <ul>
-<li>单调队列  O(n) 更通用   acwing1688</li>
-<li>适合该题   枚举+优化</li>
+<li>单调队列 O(n) 更通用 acwing1688</li>
+<li>适合该题 枚举+优化</li>
 </ul>
 <p>枚举起点时间复杂度为O(n^2)，但可以证明若无法由i走到j，则从i-j-1之间的任意一个站都没法走到j。此时可以将算法优化到O(n)。</p>
 <p>135.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/candy/">分发糖果</a></p>
@@ -1285,13 +1266,12 @@ public:
         return f[x];
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>136.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number/">只出现一次的数字</a></p>
 <p>本题要求时间复杂度为O(n)，且不开额外的空间。</p>
 <p>亦或运算，由于相同的数亦或之后结果为0，则可以把整个数组按位亦或运算，最终答案即为只出现一次的数。</p>
 <p>【拓展】数组中有两个数只出现一次，其余数字出现两次。</p>
 <p>137.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number-ii/">只出现一次的数字 II</a></p>
-<p>位运算  与或非异或</p>
+<p>位运算 与或非异或</p>
 <p>状态机</p>
 <p>138.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/copy-list-with-random-pointer/">复制带随机指针的链表</a></p>
 <p>与133类似。</p>
@@ -1341,13 +1321,12 @@ public:
         return dummy-&gt;next;
     &#125;
 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>139.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-break/">单词拆分</a></p>
 <p>DP</p>
 <p>f(i)表示字符s[1-i]的划分方案是否为空。</p>
 <p>判断字符串是否在vector中出现过，时间复杂度为O(1)的方法：trie、字符串哈希(将字符映射为数字)</p>
-<p>将字符串转化为数字——假设某一数字的各位分别为abcd，则其转化为的数字为a<em>p^0 + b</em>p^1</p>
-<p>+…之后模上一个很多大的数字。经验值，字符串哈希取p = 131几乎不会遇到冲突。</p>
+<p>将字符串转化为数字------假设某一数字的各位分别为abcd，则其转化为的数字为a<em>p^0 + b</em>p^1</p>
+<p>+...之后模上一个很多大的数字。经验值，字符串哈希取p = 131几乎不会遇到冲突。</p>
 <p>140.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-break-ii/">单词拆分 II</a></p>
 <p>返回所有的划分方案。</p>
 <p>141.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">环形链表</a></p>
