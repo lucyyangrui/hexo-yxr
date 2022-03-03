@@ -1329,6 +1329,7 @@ public:
 <p>+...之后模上一个很多大的数字。经验值，字符串哈希取p = 131几乎不会遇到冲突。</p>
 <p>140.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/word-break-ii/">单词拆分 II</a></p>
 <p>返回所有的划分方案。</p>
+<h2 id="section-10">141-150</h2>
 <p>141.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">环形链表</a></p>
 <p>直观思路：开一个hash表，记录每一个节点是否被访问过。</p>
 <p>但如果要求使用O(1)的空间，则可以考虑使用快慢指针（双指针的一种）快指针每次向后跳两格，满指针每次向后跳一格。若有环，两个指针会相遇，否则，快指针会先到达尾节点。</p>
@@ -1346,6 +1347,76 @@ public:
 <p>146.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/lru-cache/">LRU 缓存</a></p>
 <p>双链表。可以在O(1)时间删除。</p>
 <p>利用哈希表维护时间戳，</p>
+<p>147.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/insertion-sort-list/">对链表进行插入排序</a></p>
+<p>148.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/sort-list/">排序链表</a></p>
+<p><strong>进阶：</strong>你可以在 <code>O(n log n)</code> 时间复杂度和常数级空间复杂度下，对链表进行排序吗？</p>
+<p>采用<strong>迭代的归并排序</strong>，快排空间复杂度O(nlogn)</p>
+<figure>
+<img src="leetcode刷题记录\链表归并排序.png" alt="链表归并排序" /><figcaption aria-hidden="true">链表归并排序</figcaption>
+</figure>
+<p>149.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/max-points-on-a-line/">直线上最多的点数</a></p>
+<p>枚举</p>
+<p>首先根据两点确定一条直线，枚举所有直线，之后判断直线上有多少个点。</p>
+<p>优化：首先枚举中心点，之后计算其他点与中心点的斜率。由于精度比较高，用long double来表示斜率。</p>
+<p>150.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/">逆波兰表达式求值</a></p>
+<p>后缀表达式（最大的好处是不用加括号</p>
+<p>利用栈模拟</p>
+<h2 id="section-11">151-160</h2>
+<p>151.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-words-in-a-string/">翻转字符串里的单词</a></p>
+<p><strong>进阶：</strong></p>
+<ul>
+<li>请尝试使用 <code>O(1)</code> 额外空间复杂度的原地解法。</li>
+</ul>
+<p>首先将每个单词逆序，之后将整个字符串逆序。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
+public:
+    string reverseWords(string s) &#123;
+        int k &#x3D; 0;
+        for(int i &#x3D; 0; i &lt; s.size();)&#123;
+            int j &#x3D; i;
+            while(j &lt; s.size() &amp;&amp; s[j] &#x3D;&#x3D; &#39; &#39;) j ++;
+            if(j &#x3D;&#x3D; s.size()) break;   &#x2F;&#x2F;重要！！！
+            i &#x3D; j;
+            while(j &lt; s.size() &amp;&amp; s[j] !&#x3D; &#39; &#39;) j ++;
+            reverse(s.begin() + i, s.begin() + j);
+            if(k) s[k ++ ] &#x3D; &#39; &#39;;
+            while(i &lt; j) s[k ++] &#x3D; s[i ++]; &#x2F;&#x2F; 将单词向前移动
+        &#125;
+        s.erase(s.begin() + k, s.end()); &#x2F;&#x2F;删除末尾空格
+        reverse(s.begin(), s.end());
+
+        return s;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>152.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-product-subarray/">乘积最大子数组</a></p>
+<p>贪心</p>
+<p>枚举连续子段的终点。</p>
+<p>153.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/">寻找旋转排序数组中的最小值</a></p>
+<p>二分。类似于33题。</p>
+<p>整数二分，注意背一下模板。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution &#123;
+public:
+    int findMin(vector&lt;int&gt;&amp; nums) &#123;
+        int l &#x3D; 0, r &#x3D; nums.size() - 1;
+        if(nums[r] &gt;&#x3D; nums[l]) return nums[l];
+        while(l &lt; r)&#123;
+            int mid &#x3D; (l + r) &gt;&gt; 1;
+            if(nums[mid] &lt; nums[0]) r &#x3D; mid;
+            else l &#x3D; mid + 1;
+        &#125;
+        return nums[l];
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>154.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/">寻找旋转排序数组中的最小值 II</a></p>
+<p>存在重复元素。此时会导致在二分时，无法准确确定中点落下的位置。</p>
+<p>155.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/min-stack/">最小栈</a></p>
+<p>需要维护前k个值的最小值。</p>
+<p>------带锁题目先略过</p>
+<p>156.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists/">相交链表</a></p>
+<p>两个指针同时向后走，若其中一个节点走到结尾，则从另一个链表开始走。</p>
+<p>tqltql</p>
+<p>157.<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-peak-element/">寻找峰值</a></p>
+<p>你必须实现时间复杂度为 <code>O(log n)</code> 的算法来解决此问题。</p>
 
                 
             </div>

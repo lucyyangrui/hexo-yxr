@@ -666,7 +666,8 @@ F：接收状态
 <ul>
 <li>含有A-&gt;Aa形式产生式的文法成为是直接左递归的；如果一个文法中有一个非终结符A使得对某个串a存在一个推导A=&gt;Aa，那么这个文法就是左递归的，经过两步或两步以上的推导产生的左递归称为是间接左递归的。</li>
 </ul>
-<p><strong>消除直接左递归</strong>：A-&gt;Aa|b 转化为 A -&gt; bA' A' = aA'|e(空)</p>
+<p><strong>消除直接左递归</strong>：A-&gt;Aa|b 转化为 A -&gt; bA' A' = aA'|e(空)</p></li>
+</ul>
 <h2 id="ll1文法">4-3LL(1)文法</h2>
 <p><strong>S_文法</strong></p>
 <p>预测分析法的工作过程</p>
@@ -727,8 +728,138 @@ F：接收状态
 <img src="E:\bloggg\bloggg\source_posts\编译原理-笔记-bilibili大学\LR分析算法.png" alt="LR分析算法" /><figcaption aria-hidden="true">LR分析算法</figcaption>
 </figure>
 <h2 id="lr0分析">4-10LR0分析</h2>
-<p>右部某位置标有圆点的产生式称为相应文法的一个LR(0)项目（简称为项目）</p></li>
+<p>右部某位置标有圆点的产生式称为相应文法的一个LR(0)项目（简称为项目）</p>
+<p>后继项目：同属于同一个产生式的项目，但原点的位置只相差一个符号，则称后者是前者的后继项目。</p>
+<h2 id="lr0分析表构造算法">4-11LR0分析表构造算法</h2>
+<p>利用4-10的例题理解。</p>
+<figure>
+<img src="E:\bloggg\bloggg\source_posts\编译原理-笔记-bilibili大学\CLUSURE函数.png" alt="CLUSURE函数" /><figcaption aria-hidden="true">CLUSURE函数</figcaption>
+</figure>
+<figure>
+<img src="E:\bloggg\bloggg\source_posts\编译原理-笔记-bilibili大学\GOTO函数.png" alt="GOTO函数" /><figcaption aria-hidden="true">GOTO函数</figcaption>
+</figure>
+<p>构造LR(0)项集族 <span class="math display">\[
+C={I_0}\cup {I|\exists J\in C,X\in V_N\cup V_T,I=GOTO(J,X)}
+\]</span></p>
+<figure>
+<img src="E:\bloggg\bloggg\source_posts\编译原理-笔记-bilibili大学\LR0项集族.png" alt="LR0项集族" /><figcaption aria-hidden="true">LR0项集族</figcaption>
+</figure>
+<figure>
+<img src="编译原理-笔记-bilibili大学\LR0分析表构造算法.png" alt="LR0分析表构造算法" /><figcaption aria-hidden="true">LR0分析表构造算法</figcaption>
+</figure>
+<p>不是所有的CFG（上下文无关文法）都能用LR(0)方法进行分析，也就是说，CFG不总是LR(0)文法。</p>
+<h2 id="slr">4-12SLR</h2>
+<p>LR(0)可能遇到移入/归约冲突，FOLLOW集可以帮助解决。</p>
+<figure>
+<img src="E:\bloggg\bloggg\source_posts\编译原理-笔记-bilibili大学\SLR分析.png" alt="SLR分析" /><figcaption aria-hidden="true">SLR分析</figcaption>
+</figure>
+<figure>
+<img src="E:\bloggg\bloggg\source_posts\编译原理-笔记-bilibili大学\SLR分析表构造算法.png" alt="SLR分析表构造算法" /><figcaption aria-hidden="true">SLR分析表构造算法</figcaption>
+</figure>
+<h2 id="alr分析法">4-13ALR分析法</h2>
+<p>仅仅利用FOLLOW集的归约只是归约的一个必要条件，而非充分条件。</p>
+<p>将一般形式为 <span class="math display">\[
+|A\to \alpha · \beta,a|的项称为LR(1)项，其中A\to \alpha \beta是一个产生式，a是一
+个终结符\\（这里将\$视为一个特殊的终结符）它表示在当前状态下，\\A后面要求紧跟的终结符，称为该项的展望符。
+\]</span></p>
+<ul>
+<li>LR(1)中的1指的是项的第二个分量的长度</li>
 </ul>
+<h2 id="alr分析法-1">4-14ALR分析法</h2>
+<p>LALR(lookahead-LR)分析的基本思想</p>
+<p>寻找具有相同核心的LR(1)项集，并将这些项集合并为一个项集。所谓项集的核心就是其第一分量的集合；然后根据合并后得到的项集构造语法分析表；如果分析表中没有语法分析动作冲突，给定的文法就称之为LALR(1)文法，就可以根据该分析表进行语法分析。</p>
+<p>将LR(1)的同心项集进行合并。</p>
+<p>可能导致推迟错误的发现。LRLA可能会做多余的归约动作，但绝不会作错误的移入操作。</p>
+<p>特点：形式上与LR(1)相同，大小与LR(0)/SLR相当，分析能力介于SLR和LR(1)之间。</p>
+<h2 id="二义性文法的lr分析">4-15二义性文法的LR分析</h2>
+<p>每个二义性文法都不是LR的；</p>
+<p>某些类型的二义性文法在语言的描述和实现中很有用：更简短、自然</p>
+<p>应该保守的使用二义性文法，稍有不慎，可能引起编译的偏差。</p>
+<h2 id="lr分析中的错误处理">4-16LR分析中的错误处理</h2>
+<p>语法错误的检测：当LR分析器在查询分析表并发现一个报错条目，就检测到一个语法错误</p>
+<p>错误恢复策略：</p>
+<ul>
+<li>恐慌模式错误恢复
+<ul>
+<li>从栈顶向下扫描，直到发现某个状态s，它有一个对应于某个非终结符A的GOTO目标可以认为是从这和A推导出的串中包含错误；然后丢弃0个或多个输入符号，直到发现一个可能跟在A之后的符号a为止，之后将s_i+1=GOTO(s_i,A)压入栈中，继续进行正常的语法分析。</li>
+</ul></li>
+<li>短语层次错误恢复
+<ul>
+<li>检查LR分析表中的每一个报错条目，并根据语言的使用方法来决定程序员所犯的何种错误最有可能引起这个语法错误，然后构造适当的恢复过程</li>
+</ul></li>
+</ul>
+<h2 id="语法制导翻译概述">5-1语法制导翻译概述</h2>
+<p>将语法分析与语义翻译称为语法制导翻译。</p>
+<p>使用上下文无关文法来引导对语言的翻译，是一种面向语法的翻译技术。</p>
+<ul>
+<li>如何表示语义信息
+<ul>
+<li>为上下文无关文法中的文法符号设置语义属性，用来表示语法成分对应的语义信息</li>
+</ul></li>
+<li>如何让计算语义属性
+<ul>
+<li>文法符号的语义属性值是用与文法符号所在产生式相关联的语义规则来计算的</li>
+<li>对于给定的输入串x，构建x的语法分析树，并利用与产生式相关联的与一位则来计算分析书中各节点对应的语义属性值</li>
+</ul></li>
+<li>将语义规则与语法规则联系起来要设计两个概念
+<ul>
+<li>语法制导定义SDD
+<ul>
+<li>将每个文法符号和一个语义规则集合相关联</li>
+<li>将每个产生式和一组语义规则相关联，这些规则用于计算该产生式中各文法符号的属性值</li>
+</ul></li>
+<li>语法制导翻译方案SDT
+<ul>
+<li>在产生式右部嵌入了程序片段的CFG，这些程序片段称为语义动作。放到{}内。</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="语法制导定义sdd">5-2语法制导定义SDD</h2>
+<p>SDD是对CFG的推广 CFG：上下文无关文法</p>
+<ul>
+<li>综合属性
+<ul>
+<li>在分析树节点N上的非终结符A的综合属性只能通过N的子节点或N本身的属性值来定义</li>
+<li>终结符也可以具有综合属性，终结符的综合属性值是由词法分析器提供的词法值，因此在SDD中没有计算终结符属性值的语义规则</li>
+<li>分析树节点N上的非终结符A的继承属性只能通过N的父节点、兄弟节点或N本身的属性值来定义</li>
+</ul></li>
+</ul>
+<h2 id="ssd的求值顺序">5-3SSD的求值顺序</h2>
+<p>语义规则建立了属性之间的依赖关系，在对语法分析树的一个属性求值之前，必须首先求出这个属性值所依赖的所有属性值。</p>
+<h2 id="s属性定义与l属性定义">5-4S属性定义与L属性定义</h2>
+<figure>
+<img src="编译原理-笔记-bilibili大学\L-SSD.png" alt="L-SSD" /><figcaption aria-hidden="true">L-SSD</figcaption>
+</figure>
+<p>每个S属性定义都是L属性定义。</p>
+<h2 id="语法制导翻译方案sdt">5-5语法制导翻译方案SDT</h2>
+<p>可以看作是SDD的具体实施方案</p>
+<p>如果一个S-SDD的基本文法可以使用LR分析技术，那么它的SDT可以在LR语法分析过程中实现。当归约发生时执行相应的语义动作。</p>
+<p>如果一个L-SDD的基本文法可以使用LL分析技术，那么它的SDT可以在LL或LR语法分析过程中实现。</p>
+<h2 id="在非递归的预测分析过程中进行翻译">5-6在非递归的预测分析过程中进行翻译</h2>
+<p>扩展语法分析栈</p>
+<p>action：指向将被执行的语义动作代码的指针</p>
+<p>A：A的继承属性</p>
+<p>Asyn：A的综合属性</p>
+<p>分析栈中的每一个记录都对一段执行代码</p>
+<ul>
+<li>综合记录出栈时，要将综合属性值复制给后面特定的语义动作</li>
+<li>变量展开时（即变量本身的记录出栈时），如果其含有继承属性，要将继承属性值复制给后面特定的语义动作。</li>
+</ul>
+<h2 id="在递归预测过程中进行翻译">5-7在递归预测过程中进行翻译</h2>
+<p>为每一个非终结符A构造一个函数，A的每个继承属性对应该函数的一个形参，函数的返回值是A的综合属性值，会出现在A产生式右部中的每个文法符号的每个属性都设置一个局部变量。对每个动作，将其代码复制到语法分析器，并把对属性的引用改为对响应变量的引用。</p>
+<h2 id="l属性定义的自底向上翻译">5-8L属性定义的自底向上翻译</h2>
+<p>给定一个以LL文法为基础的L-SDD，可以修改这个文法，并在LR语法分析过程中计算这个新文法之上的SDD。</p>
+<figure>
+<img src="编译原理-笔记-bilibili大学\计算新文法下的SDD.png" alt="计算新文法下的SDD" /><figcaption aria-hidden="true">计算新文法下的SDD</figcaption>
+</figure>
+<hr />
+<p><strong>中间代码生成</strong></p>
+<h2 id="类型表达式">6-1类型表达式</h2>
+<p>基本类型是类型表达式：integer、real、char、boolean、type_error、void</p>
+<p>可以为类型表达式命名，类型名也是类型表达式</p>
+<p>将类型构造符作用于类型表达式可以构成新的类型表达式：数组构造符、指针构造符、笛卡尔乘积构造符、函数构造符、记录构造符record</p>
+<h2 id="声明语句的翻译">6-2声明语句的翻译</h2>
+<h2 id="简单赋值语句的翻译">6-3简单赋值语句的翻译</h2>
 
                 
             </div>
