@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于word embedding的一些思考, yxr的魔幻小屋">
-    <meta name="description" content="最近几天开始从头复盘神经语言模型的一般过程，首先对最常见的NLP分类任务进行了一些学习，通过CNN，也算是复习了一遍经典的神经网络的实现过程；然后昨天和今天又看了一下词嵌入的原理，包括word2vec(skip-gram CBOW)以及Gl">
+    <meta name="keywords" content="22研究方向的一些短期规划, yxr的魔幻小屋">
+    <meta name="description" content="真是突如其来并且猝不及防，下午小老板开会，突然给了一个很有实用性的研究方向，惊了惊了啊
+其实没有十分本质的创新点，就是一个多模态学习的概念，把多个领域的数据信息分别利用现有的比较优秀的算法进行特征提取，之后利用图表示学习的方法进行信息融合">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于word embedding的一些思考 | yxr的魔幻小屋</title>
+    <title>22研究方向的一些短期规划 | yxr的魔幻小屋</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -309,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于word embedding的一些思考</h1>
+                    <h1 class="description center-align post-title">22研究方向的一些短期规划</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +431,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%8D%E5%B5%8C%E5%85%A5/">
-                                <span class="chip bg-color">词嵌入</span>
+                            <a href="/tags/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/">
+                                <span class="chip bg-color">研究方向</span>
                             </a>
                         
-                            <a href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E8%80%83/">
-                                <span class="chip bg-color">科研思考</span>
+                            <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                                <span class="chip bg-color">多模态</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">图表示学习</span>
                             </a>
                         
                     </div>
@@ -450,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-11
+                    2022-03-12
                 </div>
                 
 
@@ -474,15 +479,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近几天开始从头复盘神经语言模型的一般过程，首先对最常见的NLP分类任务进行了一些学习，通过CNN，也算是复习了一遍经典的神经网络的实现过程；然后昨天和今天又看了一下<strong>词嵌入</strong>的原理，包括word2vec(skip-gram CBOW)以及Glove。</p>
-<p>词嵌入的本意一是希望能够降维，毕竟one-hot向量长度达到了词典的大小；二是希望词向量能够蕴含词语本身的语义信息。</p>
-<p>词嵌入向量可以通过预训练获得，也可以通过后期任务的训练调整，因为词嵌入向量的优劣没有固定的标准，一般人们会利用特定的任务，将词嵌入融入到训练过程中去，在训练过程中调整词嵌入向量，进而根据结果来对词嵌入以及模型进行整体评价。。。学到这里，我有些迷惑了，上学期好了不小的精力去学习BERT，但BERT里面只用了nn.embedding()来实现词嵌入的过程，并没有用到前面提到的word2vec的算法，只是生成一个look-up矩阵，进而根据词的id查找得到embedding向量。</p>
-<p>人们通过对词嵌入向量的研究，发现利用一定的预料以及词嵌入算法训练完成后，得到的词嵌入向量之间的语义和句法关系几乎是线性的！比如 king - queue ≈ man - woman，这属实是一个有趣的现象，<strong>不知道像是BERT这种预训练模型的embedding是不是也有这种有趣的现象~</strong></p>
-<p>感觉上来说，词嵌入是一个很重要的基础工程，毕竟经过一定的训练过程之后，不管是词向量之间的“距离”也好，还是说存在的“线性关系”也好，都说明了它是“学习”到了某些语义知识的。</p>
-<p>目前的研究范围还是太大了，虽然说是基础算法，但是还是要大概确定一下想要解决的问题吧。。。</p>
-<p>研究方向：语言模型</p>
-<p>数据集语言：英文 发展年份较长，有一些优质的数据集</p>
-<p>要解决的问题：NLP分类任务 语言生成任务 （待确定</p>
+                <p>真是突如其来并且猝不及防，下午小老板开会，突然给了一个很有实用性的研究方向，惊了惊了啊</p>
+<p>其实没有十分本质的创新点，就是一个多模态学习的概念，把多个领域的数据信息分别利用现有的比较优秀的算法进行特征提取，之后利用图表示学习的方法进行信息融合，也就是所谓的“多模态图表示学习”。</p>
+<p>最近的规划是利用5天时间写一个survey，主要摸清楚目前关于集中常见的信息媒介的处理算法以及图表示学习的算法，并且留意一下是否有论文与目前正在做的工作撞车。</p>
+<p>一周计划：</p>
+<ul>
+<li>文本、视频、图片、音频的常用特征提取的方法 ------ 阅读论文，了解大致处理流程，不需要很纠结实现的细节，但是对于大体的处理方法以及网络架构要搞清楚</li>
+<li>图表示学习 （重要） ---- 要求与上面大体一致</li>
+</ul>
+<p>PS：最然最近不准备研究NLP的基础算法了，但还是要有始有终一些，把剩余的一篇半的博文阅读完。（Seq2Seq and Attention、Transfer Learning）</p>
+<p>奥里给！！！求你，别辜负自己和未来</p>
 
                 
             </div>
@@ -509,7 +515,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://1.116.176.75/2022/03/11/%E5%85%B3%E4%BA%8Eword-embedding%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">http://1.116.176.75/2022/03/11/%E5%85%B3%E4%BA%8Eword-embedding%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</a>
+                    <a href="http://1.116.176.75/2022/03/12/22%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%AD%E6%9C%9F%E8%A7%84%E5%88%92/">http://1.116.176.75/2022/03/12/22%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%AD%E6%9C%9F%E8%A7%84%E5%88%92/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -547,12 +553,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%8D%E5%B5%8C%E5%85%A5/">
-                                    <span class="chip bg-color">词嵌入</span>
+                                <a href="/tags/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/">
+                                    <span class="chip bg-color">研究方向</span>
                                 </a>
                             
-                                <a href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E8%80%83/">
-                                    <span class="chip bg-color">科研思考</span>
+                                <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                                    <span class="chip bg-color">多模态</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">图表示学习</span>
                                 </a>
                             
                         </div>
@@ -726,9 +736,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/03/12/22%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%AD%E6%9C%9F%E8%A7%84%E5%88%92/">
                     <div class="card-image">
@@ -746,9 +757,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -757,6 +768,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -783,13 +795,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/03/textRCNN%E7%B2%BE%E8%AF%BB%E4%B8%8E%E5%A4%8D%E7%8E%B0/">
+                <a href="/2022/03/11/%E5%85%B3%E4%BA%8Eword-embedding%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="textRCNN精读与复现">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="关于word embedding的一些思考">
                         
-                        <span class="card-title">textRCNN精读与复现</span>
+                        <span class="card-title">关于word embedding的一些思考</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -800,7 +812,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-11
                             </span>
                         <span class="publish-author">
                             
@@ -813,16 +825,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/paper%E7%B2%BE%E8%AF%BB/">
-                        <span class="chip bg-color">paper精读</span>
+                    <a href="/tags/%E8%AF%8D%E5%B5%8C%E5%85%A5/">
+                        <span class="chip bg-color">词嵌入</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%8D%E7%8E%B0/">
-                        <span class="chip bg-color">复现</span>
-                    </a>
-                    
-                    <a href="/tags/pytorch/">
-                        <span class="chip bg-color">pytorch</span>
+                    <a href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E8%80%83/">
+                        <span class="chip bg-color">科研思考</span>
                     </a>
                     
                 </div>
