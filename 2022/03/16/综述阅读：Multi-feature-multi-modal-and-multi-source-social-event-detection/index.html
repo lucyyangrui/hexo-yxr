@@ -4,18 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="寒假摸鱼计划, yxr的魔幻小屋">
-    <meta name="description" content="主要目标：
-
-编译原理学习（买本书，跟着B站上课）
-leetcode刷题（保持每周听完acwing上两周的课）
-继续实现小波变换
-拓展阅读预训练模型的论文，每周两篇精读
-复现感兴趣的模型
-
-拓展：
-
-坚持写博客记录生活与">
+    <meta name="keywords" content="综述阅读：Multi-feature, multi-modal, and multi-source social event detection, yxr的魔幻小屋">
+    <meta name="description" content="文章主要介绍在线社交网络检测的方法，利用该技术可以实现对社会事件的检测和追踪。由于与研究课题的目的不相同，只挑选与课题重叠的特征提取以及特征融合的内容进行阅读。
+章节内容设置：
+Sec2 现有社会事件检测调查的相关工作
+Sec3 不同">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +20,7 @@ leetcode刷题（保持每周听完acwing上两周的课）
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>寒假摸鱼计划 | yxr的魔幻小屋</title>
+    <title>综述阅读：Multi-feature, multi-modal, and multi-source social event detection | yxr的魔幻小屋</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -319,12 +312,12 @@ leetcode刷题（保持每周听完acwing上两周的课）
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">寒假摸鱼计划</h1>
+                    <h1 class="description center-align post-title">综述阅读：Multi-feature, multi-modal, and multi-source social event detection</h1>
                 </div>
             </div>
         </div>
@@ -440,8 +433,16 @@ leetcode刷题（保持每周听完acwing上两周的课）
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E5%88%92/">
-                                <span class="chip bg-color">计划</span>
+                            <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                                <span class="chip bg-color">多模态</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BB%BC%E8%BF%B0/">
+                                <span class="chip bg-color">综述</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%9C%A8%E7%BA%BF%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%A3%80%E6%B5%8B/">
+                                <span class="chip bg-color">在线社交网络检测</span>
                             </a>
                         
                     </div>
@@ -456,7 +457,7 @@ leetcode刷题（保持每周听完acwing上两周的课）
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-17
+                    2022-03-16
                 </div>
                 
 
@@ -480,23 +481,42 @@ leetcode刷题（保持每周听完acwing上两周的课）
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>主要目标：</p>
+                <p>文章主要介绍在线社交网络检测的方法，利用该技术可以实现对社会事件的检测和追踪。由于与研究课题的目的不相同，只挑选与课题重叠的特征提取以及特征融合的内容进行阅读。</p>
+<p>章节内容设置：</p>
+<p>Sec2 现有社会事件检测调查的相关工作</p>
+<p>Sec3 不同的事件检测以及跟踪与挑战</p>
+<p>Sec4 通用事件检测体系结构，介绍传统事件检测方法的发展</p>
+<p>Sec5 事件提取的高级维度 √</p>
+<p>Sec6 介绍来自多种形式和多种媒体来源的信息融合 √</p>
+<p>Sec7 事件位置可视化技术</p>
+<p>Sec8 现有大数据和流处理平台以及大规模事件检测方法的回顾</p>
+<p>Sec9 现有技术的性能分析</p>
+<p>Sec10 事件检测在不同领域的应用前景 √</p>
+<p>Sec11 未来可能的研究方向</p>
+<h2 id="sec5-主要介绍时空信息对于事件提取的重要性">Sec5 主要介绍时空信息对于事件提取的重要性</h2>
+<p>列举目前关于结合时空数据进行社交网络事件提取的研究论文。</p>
+<h2 id="sec6-时间提取的信息融合">Sec6 时间提取的信息融合</h2>
+<p>多模态信息融合</p>
+<p>以往的学习方法：</p>
 <ul>
-<li>编译原理学习（买本书，跟着B站上课）</li>
-<li>leetcode刷题（保持每周听完acwing上两周的课）</li>
-<li>继续实现小波变换</li>
-<li>拓展阅读预训练模型的论文，每周两篇精读</li>
-<li>复现感兴趣的模型</li>
-</ul>
-<p>拓展：</p>
+<li><p>典型相关分析（CCA）只考虑了数据之间的相关性，而忽略了变量之间的关系。</p></li>
+<li><p>多核学习（MKL）为文本和图像数据建立核函数，通过这个不同的核函数来实现特征的融合</p></li>
+<li><p>Corr-LDA and multi-modal LDA models捕获图图像和注释之间的关系</p></li>
+<li><p>《,A residual merged neutral network for multimodal sentiment analysis》提出了一种新的端到端的残差网络来合并文本和图像的信息 《 Analyzing multimodal public sentiment based on hierarchical semantic attentional network》是“升级版” 首个利用图片的slogans作为附加信息</p></li>
+<li><p>深度学习方法被用于图像理解和字幕，</p>
 <ul>
-<li>坚持写博客记录生活与科研</li>
-<li>收集gsoc相关资料，最好参与进去一个开源项目~~</li>
+<li>《 Multimodal fusion with recurrent neural networks for rumor detection on microblogs》利用RNN以及一个注意力机制去捕获视觉和文本特征之间的关系，用于谣言检测。</li>
+<li>《Multimodal filtering of social media for temporal monitoring and event analysis》同样是提取视觉与文本之间的关系，利用深度典型相关分析</li>
+<li>《Exploiting multi-domain visual information for fake news detection》利用Multi-domain Visual Neural Network</li>
+</ul></li>
 </ul>
-<p>细化：</p>
-<p>目前基本上每天能保持10-15道lc的习题，但cs的课程体验感不太好，（英语还是太差了</p>
-<p>为了更快的找到方向，还是先把BERT的变种先搞清楚，之后先写个总结，列举一下attention出现之前的工作以及之后的相关改进。那个小波还要继续实现吗？这是个问题。。。</p>
-<p>还有，目前出现的prompt-tune可以学习一下。</p>
+<p>论文中还有多平台数据、多语言的处理方法，有需要以后可以阅读一下。</p>
+<h2 id="sec10-应用">Sec10 应用</h2>
+<p>推荐</p>
+<p>市场预测和营销</p>
+<p>商业分析和偏好分析</p>
+<p>新闻焦点检测和情感检测</p>
+<p>对信息隐私、健康和医学的影响</p>
 
                 
             </div>
@@ -523,7 +543,7 @@ leetcode刷题（保持每周听完acwing上两周的课）
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://1.116.176.75/2022/01/17/%E5%AF%92%E5%81%87%E6%91%B8%E9%B1%BC%E8%AE%A1%E5%88%92/">http://1.116.176.75/2022/01/17/%E5%AF%92%E5%81%87%E6%91%B8%E9%B1%BC%E8%AE%A1%E5%88%92/</a>
+                    <a href="http://1.116.176.75/2022/03/16/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%EF%BC%9AMulti-feature-multi-modal-and-multi-source-social-event-detection/">http://1.116.176.75/2022/03/16/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%EF%BC%9AMulti-feature-multi-modal-and-multi-source-social-event-detection/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -561,8 +581,16 @@ leetcode刷题（保持每周听完acwing上两周的课）
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E5%88%92/">
-                                    <span class="chip bg-color">计划</span>
+                                <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                                    <span class="chip bg-color">多模态</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BB%BC%E8%BF%B0/">
+                                    <span class="chip bg-color">综述</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%9C%A8%E7%BA%BF%E7%A4%BE%E4%BA%A4%E7%BD%91%E7%BB%9C%E6%A3%80%E6%B5%8B/">
+                                    <span class="chip bg-color">在线社交网络检测</span>
                                 </a>
                             
                         </div>
@@ -740,13 +768,13 @@ leetcode刷题（保持每周听完acwing上两周的课）
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/19/ELMo%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/">
+                <a href="/2022/03/19/%E9%82%A3%E4%BA%9B%E5%90%90%E6%A7%BD%E4%B8%8E%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ELMo阅读记录">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="那些吐槽与碎碎念">
                         
-                        <span class="card-title">ELMo阅读记录</span>
+                        <span class="card-title">那些吐槽与碎碎念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -757,7 +785,7 @@ leetcode刷题（保持每周听完acwing上两周的课）
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
                         </span>
                         <span class="publish-author">
                             
@@ -770,8 +798,12 @@ leetcode刷题（保持每周听完acwing上两周的课）
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
-                        <span class="chip bg-color">论文阅读</span>
+                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                        <span class="chip bg-color">生活</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%90%90%E6%A7%BD/">
+                        <span class="chip bg-color">吐槽</span>
                     </a>
                     
                 </div>
@@ -785,13 +817,13 @@ leetcode刷题（保持每周听完acwing上两周的课）
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/16/2022%E5%AF%92%E5%81%87%E7%A2%8E%E7%A2%8E%E5%BF%B51-16/">
+                <a href="/2022/03/15/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%EF%BC%9AA-Survey-on-Multi-modal-Summarization/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="2022寒假碎碎念1.16">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="综述阅读：A Survey on Multi-modal Summarization">
                         
-                        <span class="card-title">2022寒假碎碎念1.16</span>
+                        <span class="card-title">综述阅读：A Survey on Multi-modal Summarization</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -802,7 +834,7 @@ leetcode刷题（保持每周听完acwing上两周的课）
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-15
                             </span>
                         <span class="publish-author">
                             
@@ -815,8 +847,12 @@ leetcode刷题（保持每周听完acwing上两周的课）
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%97%A5%E5%B8%B8/">
-                        <span class="chip bg-color">日常</span>
+                    <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
+                        <span class="chip bg-color">多模态</span>
+                    </a>
+                    
+                    <a href="/tags/survey/">
+                        <span class="chip bg-color">survey</span>
                     </a>
                     
                 </div>
