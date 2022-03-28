@@ -489,7 +489,7 @@
 <span class="token keyword">from</span> fastai<span class="token punctuation">.</span>vision<span class="token punctuation">.</span><span class="token builtin">all</span> <span class="token keyword">import</span> <span class="token operator">*</span>
 path <span class="token operator">=</span> untar_data<span class="token punctuation">(</span>URLs<span class="token punctuation">.</span>PETS<span class="token punctuation">)</span><span class="token operator">/</span><span class="token string">'images'</span>
 
-<span class="token keyword">def</span> <span class="token function">is_cat</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isupper<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">is_cat</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">return</span> x<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>isupper<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">## 数据集中首字母大写的为  猫</span>
 dls <span class="token operator">=</span> ImageDataLoaders<span class="token punctuation">.</span>from_name_func<span class="token punctuation">(</span>
     path<span class="token punctuation">,</span> get_image_files<span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">,</span> valid_pct<span class="token operator">=</span><span class="token number">0.2</span><span class="token punctuation">,</span> seed<span class="token operator">=</span><span class="token number">42</span><span class="token punctuation">,</span>
     label_func<span class="token operator">=</span>is_cat<span class="token punctuation">,</span> item_tfms<span class="token operator">=</span>Resize<span class="token punctuation">(</span><span class="token number">224</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
@@ -507,6 +507,13 @@ img <span class="token operator">=</span> PILImage<span class="token punctuation
 is_cat<span class="token punctuation">,</span>_<span class="token punctuation">,</span>probs <span class="token operator">=</span> learn<span class="token punctuation">.</span>predict<span class="token punctuation">(</span>img<span class="token punctuation">)</span>   <span class="token comment">## 对是否是猫咪图片进行预测</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Is this a cat?: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>is_cat<span class="token punctuation">&#125;</span></span><span class="token string">."</span></span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"Probability it's a cat: </span><span class="token interpolation"><span class="token punctuation">&#123;</span>probs<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token format-spec">.6f</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="lession2">Lession2</h2>
+<p>值得注意的点：</p>
+<ul>
+<li>对ResNet训练过程的每一层进行可视化</li>
+<li>声音信号也可以做成图片的类型，之后利用ResNet处理，可以得到SOTA结果</li>
+<li>p值的用处有待商榷，关于衡量模型的重要性与可信度</li>
+</ul>
 
                 
             </div>
@@ -750,18 +757,17 @@ is_cat<span class="token punctuation">,</span>_<span class="token punctuation">,
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/03/21/fastai%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                <a href="/2022/03/21/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ASemi-Supervised%20classification%20with%20GCN/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="fastai课程笔记">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="论文阅读：Semi-Supervised classification with GCN">
                         
-                        <span class="card-title">fastai课程笔记</span>
+                        <span class="card-title">论文阅读：Semi-Supervised classification with GCN</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -771,27 +777,30 @@ is_cat<span class="token punctuation">,</span>_<span class="token punctuation">,
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-21
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            yxr
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/paper%E9%98%85%E8%AF%BB/" class="post-category">
+                                    paper阅读
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">课程笔记</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
+                        <span class="chip bg-color">论文阅读</span>
                     </a>
                     
-                    <a href="/tags/fastai/">
-                        <span class="chip bg-color">fastai</span>
+                    <a href="/tags/GCN/">
+                        <span class="chip bg-color">GCN</span>
                     </a>
                     
                 </div>
