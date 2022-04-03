@@ -5,8 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="综述阅读：Learining Representation of Graph Data:A Survey, yxr的魔幻小屋">
-    <meta name="description" content="
-">
+    <meta name="description" content="文章信息：aiXiv 2019.7
+摘要
+首先介绍常用的图数据类型，之后讨论图的核方法与神经网络之间的关系，将图表示学习的方法分为四类：核方法、卷积方法、图神经网络方法、图嵌入方法以及概率方法。
+介绍
+神经网络与非神经网络的机器学习">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -479,7 +482,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>文章信息：aiXiv 2019.7</p>
+<h2 id="摘要">摘要</h2>
+<p>首先介绍常用的图数据类型，之后讨论图的核方法与神经网络之间的关系，将图表示学习的方法分为四类：核方法、卷积方法、图神经网络方法、图嵌入方法以及概率方法。</p>
+<h2 id="介绍">介绍</h2>
+<p>神经网络与非神经网络的机器学习算法之间的区别在于“学习数据的表示”，在机器学习领域，主要利用数据的“特征”，而在表示学习领域， 主要关注如何得到数据的最佳表示，进而在下游任务中实现更佳的性能。同理，对于图表示学习，其主要目的是得到一个map，将节点、子图或是整个图嵌入到地位向量空间。</p>
+<p>图数据的表现形式：</p>
+<ul>
+<li>生物数据</li>
+<li>化学数据</li>
+<li>Web数据：网页为节点，网页中的超链接表示为边。</li>
+<li>文本数据：处理该类数据的方法可以使用概率或神经网络模型，另一种方法是使用图，例如，词可以表示为节点，词之间的关系表示为边；或者，将话题作为节点，话题之间的关系作为边。</li>
+<li>关系数据：往往在个人或组织之间形成，例如，社交网络之间可以看到社交关系和社交兴趣的相关。</li>
+<li>社交媒体数据：这种类型的数据包括通过网络结构连接的各种数据流，图像、text、视频、音频等数据，如何从多模态的数据流中学习到特征是一项重要的工作。</li>
+</ul>
+<p>图的矩阵表示：</p>
+<ul>
+<li>邻接矩阵</li>
+<li>对角矩阵</li>
+<li>拉普拉斯矩阵（ 非加权图</li>
+</ul>
+<p>矩阵之间的关系：</p>
+<img src="/2022/04/02/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%EF%BC%9ALearining-Representation-of-Graph-Data-A-Survey/1.png" class="" title="矩阵之间的关系">
+<p>常见应用：图对比、图分类、图聚类、链接预测、图压缩和图可视化</p>
+<ul>
+<li>图分类问题：一种是节点分类问题，另一种是整个图的分类问题</li>
+</ul>
+<h2 id="核方法">核方法</h2>
 
                 
             </div>
