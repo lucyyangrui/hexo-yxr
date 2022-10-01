@@ -4,12 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="综述阅读：Learining Representation of Graph Data:A Survey, yxr的魔幻小屋">
-    <meta name="description" content="文章信息：aiXiv 2019.7
-摘要
-首先介绍常用的图数据类型，之后讨论图的核方法与神经网络之间的关系，将图表示学习的方法分为四类：核方法、卷积方法、图神经网络方法、图嵌入方法以及概率方法。
-介绍
-神经网络与非神经网络的机器学习">
+    <meta name="keywords" content="linux相关, yxr的魔幻小屋">
+    <meta name="description" content="E: Unable to acquire the dpkg frontend lock ...
+apt-install 安装包的时候出现的问题，首先利用命令 ps aux | grep -i apt检查apt是否正被占用，若是，kill ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>综述阅读：Learining Representation of Graph Data:A Survey | yxr的魔幻小屋</title>
+    <title>linux相关 | yxr的魔幻小屋</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -313,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">综述阅读：Learining Representation of Graph Data:A Survey</h1>
+                    <h1 class="description center-align post-title">linux相关</h1>
                 </div>
             </div>
         </div>
@@ -434,16 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BB%BC%E8%BF%B0/">
-                                <span class="chip bg-color">综述</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/">
-                                <span class="chip bg-color">图嵌入</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%9B%BE%E8%A1%A8%E7%A4%BA/">
-                                <span class="chip bg-color">图表示</span>
+                            <a href="/tags/tips/">
+                                <span class="chip bg-color">tips</span>
                             </a>
                         
                     </div>
@@ -458,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-02
+                    2022-06-08
                 </div>
                 
 
@@ -482,33 +471,27 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>文章信息：aiXiv 2019.7</p>
-<h2 id="摘要">摘要</h2>
-<p>首先介绍常用的图数据类型，之后讨论图的核方法与神经网络之间的关系，将图表示学习的方法分为四类：核方法、卷积方法、图神经网络方法、图嵌入方法以及概率方法。</p>
-<h2 id="介绍">介绍</h2>
-<p>神经网络与非神经网络的机器学习算法之间的区别在于“学习数据的表示”，在机器学习领域，主要利用数据的“特征”，而在表示学习领域， 主要关注如何得到数据的最佳表示，进而在下游任务中实现更佳的性能。同理，对于图表示学习，其主要目的是得到一个map，将节点、子图或是整个图嵌入到地位向量空间。</p>
-<p>图数据的表现形式：</p>
-<ul>
-<li>生物数据</li>
-<li>化学数据</li>
-<li>Web数据：网页为节点，网页中的超链接表示为边。</li>
-<li>文本数据：处理该类数据的方法可以使用概率或神经网络模型，另一种方法是使用图，例如，词可以表示为节点，词之间的关系表示为边；或者，将话题作为节点，话题之间的关系作为边。</li>
-<li>关系数据：往往在个人或组织之间形成，例如，社交网络之间可以看到社交关系和社交兴趣的相关。</li>
-<li>社交媒体数据：这种类型的数据包括通过网络结构连接的各种数据流，图像、text、视频、音频等数据，如何从多模态的数据流中学习到特征是一项重要的工作。</li>
-</ul>
-<p>图的矩阵表示：</p>
-<ul>
-<li>邻接矩阵</li>
-<li>对角矩阵</li>
-<li>拉普拉斯矩阵（ 非加权图</li>
-</ul>
-<p>矩阵之间的关系：</p>
-<img src="/2022/04/02/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%EF%BC%9ALearining-Representation-of-Graph-Data-A-Survey/1.png" class="" title="矩阵之间的关系">
-<p>常见应用：图对比、图分类、图聚类、链接预测、图压缩和图可视化</p>
-<ul>
-<li>图分类问题：一种是节点分类问题，另一种是整个图的分类问题</li>
-</ul>
-<h2 id="核方法">核方法</h2>
+                <h2 id="e-unable-to-acquire-the-dpkg-frontend-lock-...">E: Unable to acquire the dpkg frontend lock ...</h2>
+<p>apt-install 安装包的时候出现的问题，首先利用命令 <code>ps aux | grep -i apt</code>检查apt是否正被占用，若是，kill -9 PID 结束任务。</p>
+<h2 id="gpu显存释放">GPU显存释放</h2>
+<p>用<code>job -l</code>不显示进程，且GPU显存被占用，可以用</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">fuser -v &#x2F;dev&#x2F;nvidia*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>*表示GPU号(0,1,2...)，检查是否有子进程占用，若有，kill -9 结束进程</p>
+<p>若未安装，使用下面的命令安装：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">apt-get install psmisc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>PS 如果只有自己在使用GPU的话，也可以用top来查看PID</p>
+<h2 id="查看python环境的安装包">查看python环境的安装包</h2>
+<p>pip</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#输出已经安装的所有包的包名和版本信息</span>
+pip freeze
+<span class="token comment">#将上述结果输出重定向到requirements.txt文件中保存</span>
+pip freeze <span class="token operator">></span> requirements.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>从文件中安装</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">pip <span class="token function">install</span> -r requirements.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>conda</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda list -e <span class="token operator">></span> requirements.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>从文件中安装</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> --yes --file requirements.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -535,7 +518,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://1.116.176.75/2022/04/02/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%EF%BC%9ALearining-Representation-of-Graph-Data-A-Survey/">http://1.116.176.75/2022/04/02/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%EF%BC%9ALearining-Representation-of-Graph-Data-A-Survey/</a>
+                    <a href="http://1.116.176.75/2022/06/08/linux%E7%9B%B8%E5%85%B3/">http://1.116.176.75/2022/06/08/linux%E7%9B%B8%E5%85%B3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,16 +556,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BB%BC%E8%BF%B0/">
-                                    <span class="chip bg-color">综述</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/">
-                                    <span class="chip bg-color">图嵌入</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%9B%BE%E8%A1%A8%E7%A4%BA/">
-                                    <span class="chip bg-color">图表示</span>
+                                <a href="/tags/tips/">
+                                    <span class="chip bg-color">tips</span>
                                 </a>
                             
                         </div>
@@ -756,9 +731,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/06/08/linux%E7%9B%B8%E5%85%B3/">
                     <div class="card-image">
@@ -776,9 +752,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -787,6 +763,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -805,13 +782,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/01/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ALearning-Neighborhood-Representation-from-Multi-Modal-Multi-Graph-Image/">
+                <a href="/2022/04/02/%E7%BB%BC%E8%BF%B0%E9%98%85%E8%AF%BB%EF%BC%9ALearining-Representation-of-Graph-Data-A-Survey/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="论文阅读：Learning Neighborhood Representation from Multi-Modal Multi-Graph: Image,">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="综述阅读：Learining Representation of Graph Data:A Survey">
                         
-                        <span class="card-title">论文阅读：Learning Neighborhood Representation from Multi-Modal Multi-Graph: Image,</span>
+                        <span class="card-title">综述阅读：Learining Representation of Graph Data:A Survey</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -822,7 +799,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-02
                             </span>
                         <span class="publish-author">
                             
@@ -835,16 +812,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">
-                        <span class="chip bg-color">论文阅读</span>
+                    <a href="/tags/%E7%BB%BC%E8%BF%B0/">
+                        <span class="chip bg-color">综述</span>
                     </a>
                     
-                    <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/">
-                        <span class="chip bg-color">多模态</span>
+                    <a href="/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/">
+                        <span class="chip bg-color">图嵌入</span>
                     </a>
                     
-                    <a href="/tags/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">图表示学习</span>
+                    <a href="/tags/%E5%9B%BE%E8%A1%A8%E7%A4%BA/">
+                        <span class="chip bg-color">图表示</span>
                     </a>
                     
                 </div>
