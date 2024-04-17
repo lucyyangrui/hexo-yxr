@@ -475,10 +475,10 @@ apt-install 安装包的时候出现的问题，首先利用命令 ps aux | grep
 <p>apt-install 安装包的时候出现的问题，首先利用命令 <code>ps aux | grep -i apt</code>检查apt是否正被占用，若是，kill -9 PID 结束任务。</p>
 <h2 id="gpu显存释放">GPU显存释放</h2>
 <p>用<code>job -l</code>不显示进程，且GPU显存被占用，可以用</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">fuser -v &#x2F;dev&#x2F;nvidia*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">fuser</span> -v /dev/nvidia*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>*表示GPU号(0,1,2...)，检查是否有子进程占用，若有，kill -9 结束进程</p>
 <p>若未安装，使用下面的命令安装：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">apt-get install psmisc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">apt-get</span> <span class="token function">install</span> psmisc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>PS 如果只有自己在使用GPU的话，也可以用top来查看PID</p>
 <h2 id="查看python环境的安装包">查看python环境的安装包</h2>
 <p>pip</p>
@@ -518,7 +518,7 @@ pip freeze <span class="token operator">></span> requirements.txt<span aria-hidd
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hexo-yxr.github.io/2022/06/08/linux%E7%9B%B8%E5%85%B3/">https://hexo-yxr.github.io/2022/06/08/linux%E7%9B%B8%E5%85%B3/</a>
+                    <a href="https://lucyyangrui.github.io/hexo-yxr/2022/06/08/linux%E7%9B%B8%E5%85%B3/">https://lucyyangrui.github.io/hexo-yxr/2022/06/08/linux%E7%9B%B8%E5%85%B3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -810,12 +810,12 @@ pip freeze <span class="token operator">></span> requirements.txt<span aria-hidd
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BB%BC%E8%BF%B0/">
-                        <span class="chip bg-color">综述</span>
-                    </a>
-                    
                     <a href="/tags/%E5%9B%BE%E5%B5%8C%E5%85%A5/">
                         <span class="chip bg-color">图嵌入</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BB%BC%E8%BF%B0/">
+                        <span class="chip bg-color">综述</span>
                     </a>
                     
                     <a href="/tags/%E5%9B%BE%E8%A1%A8%E7%A4%BA/">
